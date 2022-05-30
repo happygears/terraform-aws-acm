@@ -64,9 +64,15 @@ variable "validation_record_fqdns" {
 }
 
 variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
+  description = "The ID of the hosted zone to contain this record. Required when validating via Route53 if zone_name not provided"
   type        = string
-  default     = ""
+  default     = null
+}
+
+variable "zone_name" {
+  description = "Name of DNS zone to contain this record. Required when validating via Route53 if zone_id not provided"
+  type        = string
+  default     = null
 }
 
 variable "tags" {
